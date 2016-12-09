@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>MusicApp</title>
+  <%= stylesheet_link_tag    'application', media: 'all' %>
+  <%= javascript_include_tag 'application' %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+  <nav>
+    <% if logged_in? %>
+      <%= button_to "Sign Out", session_url, method: :delete %>
+    <% else %>
+      <%= link_to "Sign In", new_session_url %>
+    <% end %>
+  </nav>
+
+<%= yield %>
+
+  <footer>
+    <p><%= link_to "All Bands", bands_url %></p>
+    <p><%= link_to "Add Band", new_band_url %></p>
+  </footer>
+
+</body>
+</html>

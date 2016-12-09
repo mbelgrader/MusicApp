@@ -1,0 +1,14 @@
+<h1>Add Track</h1>
+
+<form action=" <%= tracks_url %> " method="post">
+  <input
+    type="hidden"
+    name="authenticity_token"
+    value=" <%= form_authenticity_token %> ">
+
+  <label> Name
+    <input type="text" name="track[name]">
+  </label>
+
+  <input type="submit">
+</form>
