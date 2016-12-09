@@ -10,6 +10,7 @@ class TracksController < ApplicationController
 
   def create
     @track = Track.new(track_params)
+    @track.album_id = params[:album_id]
 
     if @track.save
       redirect_to tracks_url
@@ -20,6 +21,7 @@ class TracksController < ApplicationController
 
   def new
     @track = Track.new
+    @albums = Album.all
     render :new
   end
 

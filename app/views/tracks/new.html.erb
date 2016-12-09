@@ -10,5 +10,19 @@
     <input type="text" name="track[name]">
   </label>
 
+  <p>
+    <label>Album
+      <select name="track[album_id]">
+          <% @albums.each do |album| %>
+              <option
+                  <%= "selected" if @track.album_id == album.id %>
+                  value="<%= album.id %>">
+                  <%= album.name %>
+              </option>
+          <% end %>
+      </select>
+    </label>
+  </p>
+
   <input type="submit">
 </form>

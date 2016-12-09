@@ -6,7 +6,7 @@ class AlbumsController < ApplicationController
   end
 
   def show
-    @tracks = Track.all.where(album_id: params[:album_id])
+    @tracks = Track.all.where(album_id: params[:id])
     render :show
   end
 
