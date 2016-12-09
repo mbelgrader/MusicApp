@@ -2,10 +2,12 @@ class AlbumsController < ApplicationController
 
   def index
     @albums = Album.all
+    render :index
   end
 
   def show
     @tracks = Track.all
+    render :show
   end
 
   def create
@@ -32,7 +34,7 @@ class AlbumsController < ApplicationController
 
   private
 
-  def band_params
+  def album_params
     params.require(:album).permit(:name, :band_id, :year, :live)
   end
 end

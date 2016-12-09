@@ -32,6 +32,24 @@
     </label>
   </p>
 
+  <p>
+    <input
+      type="radio"
+      name="album[live]"
+      value="true"
+      id="album_live"
+      <%= "checked" if @album.live %>>
+    <label for="album_live_t">Live</label>
+
+    <input
+      type="radio"
+      name="album[live]"
+      value="false"
+      id="album_live_f"
+      <%= "checked" if !@album.live %>>
+    <label for="album_live_f">Studio</label>
+  </p>
+
 
   <input type="submit">
 </form>

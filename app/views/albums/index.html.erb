@@ -1,7 +1,3 @@
 <h1>Albums</h1>
 
-<ul>
-  <% @albums.each do |album| %>
-  <li>album.name</li>
-  <% end %>
-</ul>
+<%= render 'shared/albums', albums: @albums %>

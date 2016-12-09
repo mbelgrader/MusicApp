@@ -2,6 +2,7 @@ class TracksController < ApplicationController
 
   def index
     @tracks = Track.all
+    render :index
   end
 
   def show
@@ -11,7 +12,7 @@ class TracksController < ApplicationController
     @track = Track.new(track_params)
 
     if @track.save
-      redirect_to track_url(@track)
+      redirect_to tracks_url
     else
       render :new
     end
