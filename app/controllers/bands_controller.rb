@@ -7,7 +7,7 @@ class BandsController < ApplicationController
 
   def show
     @band = Band.find(params[:id])
-    @albums = Album.all
+    @albums = Album.all.where(band_id: params[:id])
     render :show
   end
 

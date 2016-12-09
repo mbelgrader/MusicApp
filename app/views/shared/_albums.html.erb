@@ -1,6 +1,9 @@
 <h3>Albums:<h3>
-  <ul>
-    <% @albums.each do |album| %>
-      <li><%= link_to album.name, album_url(album)%></li>
-    <% end %>
-  </ul>
+
+  <% if @albums %>
+    <ul>
+      <% @albums.each do |album| %>
+        <li><%= link_to album.name, album_url(album)%></li>
+      <% end %>
+    </ul>
+  <% end %>
