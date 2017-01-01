@@ -10,18 +10,19 @@ class TracksController < ApplicationController
 
   def create
     @track = Track.new(track_params)
-    @track.album_id = params[:album_id]
 
     if @track.save
-      redirect_to tracks_url
+      redirect_to album_url(@track.album_id)
     else
+      @album = @track.album
+      flash.now[:errors] = @track.errors.full_messages
       render :new
     end
   end
 
   def new
-    @track = Track.new
-    @albums = Album.all
+    @track = Track.new(album_id: params[:album_id])
+    @album = Album.find(params[:album_id])
     render :new
   end
 

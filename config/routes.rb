@@ -1,15 +1,22 @@
 Rails.application.routes.draw do
-  resources :users, only: [:create, :new, :show]
-  resource :session, only: [:create, :new, :destroy]
-  resources :bands
+  # root to: 'sessions#new'
+  root to: redirect("/bands")
 
-  resources :albums do
-    resources :tracks, only: [:new, :create]
+  resource :session, only: [:create, :destroy, :new]
+  resources :users, only: [:create, :new, :show] do
+    get :activate, on: :collection
   end
 
-  resources :tracks
+  resources :bands do
+    resources :albums, only: [:new]
+  end
 
-  root to: 'sessions#new'
+  resources :albums, only: [:create, :destroy, :edit, :show, :update] do
+    resources :tracks, only: [:new]
+  end
+
+  resources :tracks, only: [:create, :destroy, :edit, :show, :update]
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

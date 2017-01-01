@@ -1,6 +1,6 @@
 <h1>Add Track</h1>
 
-<form action=" <%= tracks_url %> " method="post">
+<form action="<%= tracks_url %>" method="post">
   <input
     type="hidden"
     name="authenticity_token"
@@ -13,7 +13,7 @@
   <p>
     <label>Album
       <select name="track[album_id]">
-          <% @albums.each do |album| %>
+          <% Album.all.each do |album| %>
               <option
                   <%= "selected" if @track.album_id == album.id %>
                   value="<%= album.id %>">
